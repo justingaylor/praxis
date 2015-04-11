@@ -97,6 +97,7 @@ module Praxis
         controller.response.finish
       end
     rescue Exception => e
+      Praxis::Application.instance.logger.error "Praxis hit exception: #{e.message}, #{e.backtrace.join("\n")}"
       @application.error_handler.handle!(request, e)
     ensure
       @controller = nil
