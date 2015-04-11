@@ -81,7 +81,7 @@ module Praxis
       Notifications.instrument 'praxis.request.all'.freeze, payload do
         # the response stage must be the final stage in the list
         *stages, response_stage = @stages
-        
+
         stages.each do |stage|
           result = stage.run
           case result
@@ -96,7 +96,7 @@ module Praxis
         payload[:response] = controller.response
         controller.response.finish
       end
-    rescue => e
+    rescue Exception => e
       @application.error_handler.handle!(request, e)
     ensure
       @controller = nil
