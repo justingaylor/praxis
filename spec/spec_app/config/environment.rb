@@ -28,6 +28,8 @@ Praxis::Application.configure do |application|
     }
   }
 
+  application.bootloader.use Praxis::Plugins::Authorization, adapter: 'Praxis::Plugins::Authorization::OptimisticAdapter'
+
   # enable "development-mode" options
   application.config.praxis.validate_responses = true
   application.config.praxis.validate_response_bodies = true

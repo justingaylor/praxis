@@ -25,6 +25,8 @@ Praxis::ApiDefinition.define do
 
     base_path "/api"
     produces 'json','xml'
+
+    authorization_scope :cloud, description: "Must have access to the parent Cloud resource."
     #version_with :path
     #base_path "/v:api_version"
   end
