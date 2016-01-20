@@ -1,6 +1,3 @@
-# TODO: Refactor to add :ApiGeneralInfo to PLUGIN_CLASSES
-Praxis::PluginConcern::ClassMethods::PLUGIN_CLASSES << :ApiGeneralInfo
-
 module Praxis
   module Plugins
     module Authorization
