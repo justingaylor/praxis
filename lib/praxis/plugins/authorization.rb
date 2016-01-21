@@ -46,10 +46,6 @@ module Praxis
         end
       end
 
-      module Controller
-        extend ActiveSupport::Concern
-      end
-
       module ApiGeneralInfo
         extend ActiveSupport::Concern
 
@@ -76,6 +72,9 @@ module Praxis
             bad_scopes = values - Praxis::ApiDefinition.instance.info(self.version).authorization_scopes.keys
             fail "Undefined authorization_scope received for #{self.name}: #{bad_scopes.join(', ')}. Please define it in your ApiDefinition." unless bad_scopes.empty?
             @authorization_scopes = [values].flatten
+          end
+          def authorization_scopes
+            @authorization_scopes ||= []
           end
         end
       end
